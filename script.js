@@ -7,8 +7,6 @@ var canvas;
 var ctx;
 var backgroundColor = "white";
 var i;
-var rotSqTimeout;
-
 var gradient;
 
 var rand = function(min,max)
@@ -57,7 +55,7 @@ function updateCanvas()
         square = new Square(x, y, size, lineWidth);
         squares.push(square);
     }
-    rotSqTimeout = setTimeout(rotateSquare, 100);
+    setTimeout(rotateSquare, 100/30);
 }
 
 function Circle(radius, x, y, lineWidth)
@@ -101,10 +99,10 @@ function rotateSquare()
     {
         square = squares[i];
         ctx.save();
-        ctx.rotate(angleToRadian(360));
+        ctx.rotate(angleToRadian(45));
         square.display();
         ctx.restore();
     }
     
-    rotSqTimeout = setTimeout(rotateSquare, 100);
+    setTimeout(rotateSquare, 100/30);
 }
